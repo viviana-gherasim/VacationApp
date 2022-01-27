@@ -21,6 +21,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".RegisterUser">
+
+        </activity>
+
+        <activity
+            android:name=".LoginUser">
+
+        </activity>
+
     </application>
 
 </manifest>
