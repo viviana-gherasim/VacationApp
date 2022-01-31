@@ -7,6 +7,7 @@
     <string name="date_of_birth">Date of birth</string>
     <string name="password">Password</string>
     <string name="sign_up">Register</string>
+    <string name="login">LogIn</string>
     <string name="back">Back</string>
 
     <string-array name="array_months">
