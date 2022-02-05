@@ -9,9 +9,11 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView register;
+    private TextView login;
     private FirebaseAuth mAuth;
 
     @Override
@@ -21,6 +23,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         register=(TextView) findViewById(R.id.registerButton);
         register.setOnClickListener(this);
+
+        login=(TextView) findViewById(R.id.loginButton);
+        login.setOnClickListener(this);
 
         /*mAuth=FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser() != null)
@@ -34,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.registerButton:
                 startActivity(new Intent(this, RegisterUser.class));
+                break;
+
+            case R.id.loginButton:
+                startActivity(new Intent(this, LoginUser.class));
                 break;
         }
     }
