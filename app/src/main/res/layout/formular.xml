@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
-    tools:context=".DatePicker">
+    tools:context=".Form">
 
     <LinearLayout
         android:orientation="vertical"
@@ -168,6 +168,32 @@
                     app:values="@array/initial_slider_values"/>
             </TableRow>
             <!--//Flight price -->
+
+            <!--Favourite activities -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewFavouriteActivities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/favActivities" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="230dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/txt"
+                    android:spinnerMode="dialog"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:layout_marginTop="15dp"
+                    android:layout_centerHorizontal="true"/>
+
+            </TableRow>
+            <!--//Favourite activities -->
 
         </TableLayout>
 

@@ -46,7 +46,7 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
 //                break;
 //
             case R.id.buttonFindBestSpot:
-                startActivity(new Intent(MainMenuActivity.this, DatePicker.class));
+                startActivity(new Intent(MainMenuActivity.this, Form.class));
                 break;
         }
     }
