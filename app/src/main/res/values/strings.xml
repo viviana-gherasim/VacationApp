@@ -20,6 +20,14 @@
     <string name="weather">Weather</string>
     <string name="hot">Hot</string>
     <string name="cold">Cold</string>
+    <string name="budget">Budget</string>
+    <string name="flightPrice">Flight Price</string>
+
+    <array name="initial_slider_values">
+        <item>2000</item>
+        <item>3500</item>
+    </array>
+
 
     <string-array name="array_months">
         <item>Jan</item>
@@ -35,6 +43,7 @@
         <item>Nov</item>
         <item>Dec</item>
     </string-array>
+
     <string name="january">January</string>
     <string name="february">February</string>
     <string name="march">March</string>

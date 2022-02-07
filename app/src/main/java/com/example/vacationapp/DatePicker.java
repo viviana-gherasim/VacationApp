@@ -11,6 +11,7 @@ import androidx.core.util.Pair;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.android.material.slider.RangeSlider;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -45,5 +46,13 @@ public class DatePicker extends AppCompatActivity {
                 mSelectedDateText.setText("Selected Date: " + materialDatePicker.getHeaderText());
             }
         });
+
+        RangeSlider slider1 = findViewById(R.id.rangeSeekBar1);
+        slider1.setValues(2000f, 3500f);
+
+        RangeSlider slider2 = findViewById(R.id.rangeSeekBar2);
+        slider2.setValues(2000f, 3500f);
+
+
     }
 }

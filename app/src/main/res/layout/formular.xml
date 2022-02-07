@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     tools:context=".DatePicker">
 
@@ -121,6 +121,53 @@
 
             </TableRow>
             <!--//Weather -->
+
+            <!--Budget -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewBudget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/budget" />
+
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/rangeSeekBar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="0"
+                    android:valueTo="10000"
+                    app:values="@array/initial_slider_values"/>
+
+            </TableRow>
+            <!--//Budget -->
+
+            <!--Flight price -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewFlightPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/flightPrice" />
+
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/rangeSeekBar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="0"
+                    android:valueTo="10000"
+                    app:values="@array/initial_slider_values"/>
+            </TableRow>
+            <!--//Flight price -->
 
         </TableLayout>
 
