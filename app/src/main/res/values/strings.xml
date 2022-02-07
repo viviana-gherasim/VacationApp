@@ -16,6 +16,8 @@
     <string name="offer">View Offer</string>
     <string name="spot">Find my best spot</string>
 
+    <string name="period">Select the date</string>
+
     <string-array name="array_months">
         <item>Jan</item>
         <item>Feb</item>
