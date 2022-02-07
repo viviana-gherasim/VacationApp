@@ -17,6 +17,9 @@
     <string name="spot">Find my best spot</string>
 
     <string name="period">Select the date</string>
+    <string name="weather">Weather</string>
+    <string name="hot">Hot</string>
+    <string name="cold">Cold</string>
 
     <string-array name="array_months">
         <item>Jan</item>
