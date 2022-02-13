@@ -1,5 +1,6 @@
 package com.example.vacationapp;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 
@@ -17,12 +19,19 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.slider.RangeSlider;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 public class Form extends AppCompatActivity {
 
     private Button mDatePickerBtn;
     private TextView mSelectedDateText;
-    Spinner spinner;
-    String[] activities = {"Family Activities", "Visiting Tours", "Experience the Local Flavor", "Star Gazing", "Camping"};
+    TextView activities;
+    boolean[] selectedActivity;
+    ArrayList<Integer> activityList = new ArrayList<>();
+    String[] activityArray = {"Visiting Tour", "Skuba Diving", "Relax", "Hiking" };
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,8 +40,6 @@ public class Form extends AppCompatActivity {
 
         mDatePickerBtn = findViewById(R.id.buttonDatePicker);
         mSelectedDateText = findViewById(R.id.selectedDate);
-
-        spinner = findViewById(R.id.spinner);
 
         MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
         builder.setTitleText("Select a date");
@@ -58,21 +65,68 @@ public class Form extends AppCompatActivity {
         RangeSlider slider2 = findViewById(R.id.rangeSeekBar2);
         slider2.setValues(2000f, 3500f);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Form.this, R.layout.item_file_activities, activities);
-        adapter.setDropDownViewResource(R.layout.item_file_activities);
-        spinner.setAdapter(adapter);
+        activities = findViewById(R.id.textViewFavouriteActivities);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        selectedActivity = new boolean[activityArray.length];
+
+        activities.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String value = parent.getItemAtPosition(position).toString();
-                Toast.makeText(Form.this, value, Toast.LENGTH_SHORT).show();
-            }
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(
+                       Form.this
+                );
+                builder.setTitle("Select Activity");
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                builder.setCancelable(false);
 
+                builder.setMultiChoiceItems(activityArray, selectedActivity, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                        if (b) {
+                            activityList.add(i);
+                            Collections.sort(activityList);
+                        } else {
+                            activityList.remove(i);
+                        }
+                    }
+                });
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        StringBuilder stringBuilder = new StringBuilder();
+
+                        for(int j=0; j<activityList.size();j++) {
+                            stringBuilder.append(activityArray[activityList.get(j)]);
+
+                            if(j!=activityList.size()-1) {
+                                stringBuilder.append(", ");
+                            }
+                        }
+                        activities.setText(stringBuilder.toString());
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                builder.setNeutralButton("Clear all", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        for(int j=0; j<selectedActivity.length;j++) {
+                            selectedActivity[j]=false;
+                            activityList.clear();
+                            activities.setText("");
+                        }
+                    }
+                });
+                builder.show();
             }
         });
+
     }
 }
