@@ -23,6 +23,9 @@
     <string name="budget">Budget</string>
     <string name="flightPrice">Flight Price</string>
     <string name="favActivities">Favourite Activities</string>
+    <string name="saveFormButton">Save</string>
+    <string name="backToMain">Back</string>
+
 
     <array name="initial_slider_values">
         <item>2000</item>

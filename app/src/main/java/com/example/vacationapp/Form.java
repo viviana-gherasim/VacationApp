@@ -1,14 +1,11 @@
 package com.example.vacationapp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -18,9 +15,9 @@ import androidx.core.util.Pair;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.slider.RangeSlider;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Form extends AppCompatActivity {
@@ -31,15 +28,24 @@ public class Form extends AppCompatActivity {
     boolean[] selectedActivity;
     ArrayList<Integer> activityList = new ArrayList<>();
     String[] activityArray = {"Visiting Tour", "Skuba Diving", "Relax", "Hiking" };
+    private Button backToMain, saveForm;
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formular);
 
         mDatePickerBtn = findViewById(R.id.buttonDatePicker);
         mSelectedDateText = findViewById(R.id.selectedDate);
+
+        saveForm=(Button) findViewById(R.id.saveForm);
+        saveForm.setOnClickListener(this::onClick);
+
+        backToMain=(Button) findViewById(R.id.backToMain);
+        backToMain.setOnClickListener(this::onClick);
+
+
 
         MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
         builder.setTitleText("Select a date");
@@ -127,6 +133,15 @@ public class Form extends AppCompatActivity {
                 builder.show();
             }
         });
-
+    }
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.backToMain:
+                startActivity(new Intent(Form.this,MainMenuActivity.class ));
+                break;
+//            case R.id.saveForm:
+//                startActivity(new Intent(Form.this, ));
+//                break;
+        }
     }
 }
