@@ -6,6 +6,8 @@
     <string name="email">Email</string>
     <string name="date_of_birth">Date of birth</string>
     <string name="password">Password</string>
+    <string name="fullName">Full Name</string>
+
 
     <string name="sign_up">Register</string>
     <string name="login">LogIn</string>
@@ -25,6 +27,7 @@
     <string name="favActivities">Favourite Activities</string>
     <string name="saveFormButton">Save</string>
     <string name="backToMain">Back</string>
+
 
 
     <array name="initial_slider_values">

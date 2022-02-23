@@ -24,7 +24,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     private TextView back;
     private TextView sign;
     private FirebaseAuth mAuth;
-    private EditText editTextEmail, editTextPassword, daySpinner, monthSpinner, yearSpinner;
+    private EditText editTextFullName, editTextEmail, editTextPassword, daySpinner, monthSpinner, yearSpinner;
     private Spinner activityLevel;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
         mAuth = FirebaseAuth.getInstance();
 
+        editTextFullName=(EditText) findViewById(R.id.editTextFullName);
         editTextEmail=(EditText) findViewById(R.id.editTextEmail);
         editTextPassword=(EditText) findViewById(R.id.editTextPassword);
         daySpinner=(EditText) findViewById(R.id.spinnerDOBDay);
@@ -59,11 +60,18 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     }
 
     private void registerUser() {
+        String name = editTextFullName.getText().toString().trim();
         String email =editTextEmail.getText().toString().trim();
         String password=editTextPassword.getText().toString().trim();
         String day=daySpinner.getText().toString().trim();
         String month=monthSpinner.getText().toString().trim();
         String year=yearSpinner.getText().toString().trim();
+
+        if(name.isEmpty()){
+            editTextFullName.setError("Full Name is required!");
+            editTextFullName.requestFocus();
+            return;
+        }
 
         if(email.isEmpty()){
             editTextEmail.setError("Email is required!");
@@ -115,7 +123,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
-                            User user=new User(email, password, day, month, year);
+                            User user=new User(name, email, password, day, month, year);
 
                             FirebaseDatabase.getInstance("https://vacationapp-ae530-default-rtdb.europe-west1.firebasedatabase.app").getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

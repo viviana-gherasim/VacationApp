@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginUser extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,6 +23,7 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
     private TextView back;
     private FirebaseAuth mAuth;
     private EditText editTextEmail, editTextPassword;
+
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,6 +37,7 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
         back.setOnClickListener(this);
 
         editTextEmail=(EditText) findViewById(R.id.editTextEmailLogin);
+
         editTextPassword=(EditText) findViewById(R.id.editTextPasswordLogin);
         mAuth = FirebaseAuth.getInstance();
     }
@@ -83,10 +86,17 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
         }
 
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                String inputMail = editTextEmail.getText().toString();
+                String admin = "admin@gmail.com";
                 if(task.isSuccessful()){
-                    startActivity(new Intent(LoginUser.this,MainMenuActivity.class));
+                    if(inputMail.equals(admin)) {
+                        startActivity(new Intent(LoginUser.this,Admin.class));
+                    } else {
+                        startActivity(new Intent(LoginUser.this, MainMenuActivity.class));
+                    }
                 }
                 else
                 {

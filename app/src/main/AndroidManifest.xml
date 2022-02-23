@@ -41,6 +41,11 @@
 
         </activity>
 
+        <activity
+            android:name=".Admin">
+
+        </activity>
+        
     </application>
 
 </manifest>

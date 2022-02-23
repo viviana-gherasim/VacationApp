@@ -32,6 +32,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!-- FullName -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="18dp">
+
+                <TextView
+                    android:id="@+id/textViewFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Full Name" />
+
+                <EditText
+                    android:id="@+id/editTextFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" />
+            </TableRow>
+            <!-- //FullName -->
+
             <!-- Email -->
             <TableRow
                 android:layout_width="match_parent"
@@ -133,7 +153,6 @@
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/blank"
                     android:layout_marginTop="12dp" />
 
                 <Button
@@ -145,7 +164,6 @@
                     android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/blank"
                     android:layout_marginTop="12dp" />
 
             </TableRow>
@@ -161,7 +179,6 @@
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/blank"
                     android:layout_marginTop="12dp" />
 
                 <Button
@@ -173,7 +190,6 @@
                     android:id="@+id/textView17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/blank"
                     android:layout_marginTop="12dp" />
 
             </TableRow>
