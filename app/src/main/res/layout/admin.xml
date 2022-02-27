@@ -6,14 +6,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
+        android:id="@+id/buttonAddDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="550dp"
+        android:text="@string/add_destination" />
+
+    <Button
+        android:id="@+id/buttonEditDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="450dp"
+        android:text="@string/edit_destination" />
+
+    <Button
+        android:id="@+id/buttonFlights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="350dp"
+        android:text="@string/manage_flights" />
+
+    <Button
+        android:id="@+id/buttonHotels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="250dp"
+        android:text="@string/manage_hotels" />
+
+    <Button
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="103dp"
+        android:layout_marginBottom="150dp"
         android:text="@string/logout"
-        app:backgroundTint="#952B2B"/>
+        app:backgroundTint="#952B2B" />
 
 
 </RelativeLayout>

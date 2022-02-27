@@ -14,6 +14,19 @@
     <string name="logout">logout</string>
     <string name="back">Back</string>
 
+    <string name="add_destination">Add Destination</string>
+    <string name="edit_destination">Edit Destination</string>
+    <string name="manage_flights">Flights</string>
+    <string name="manage_hotels">Hotels</string>
+
+
+    <string name="imageDest">Select image</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="description">Description</string>
+    <string name="topActivities">Top Activities</string>
+
+
     <string name="profile">Profile</string>
     <string name="offer">View Offer</string>
     <string name="spot">Find my best spot</string>
